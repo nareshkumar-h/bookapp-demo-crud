@@ -18,4 +18,6 @@ public interface IBookDAO {
 
 	Integer count();
 
+	void updateTitle(Book book);
+
 }

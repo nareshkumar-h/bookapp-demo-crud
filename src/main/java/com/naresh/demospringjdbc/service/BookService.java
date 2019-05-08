@@ -53,4 +53,15 @@ public class BookService implements IBookService {
 		}
 		return book;
 	}
+
+	@Override
+	public void updateTitle(Integer bookId, String bookTitle) {
+		Book book = bookDAO.findOne(bookId);
+		if(book == null) {
+			throw new BookAppException("Invalid bookId");
+		}
+		book.setTitle(bookTitle);
+		bookDAO.updateTitle(book);
+		
+	}
 }

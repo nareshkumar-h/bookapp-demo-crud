@@ -17,5 +17,7 @@ public interface IBookService {
 	List<Book> list();
 
 	Book findBook(int bookId);
+	
+	void updateTitle(Integer bookId, String bookTitle);
 
 }

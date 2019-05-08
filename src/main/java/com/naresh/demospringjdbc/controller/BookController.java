@@ -39,12 +39,12 @@ public class BookController {
 	@PutMapping("{id}")
 	public ResponseEntity<Object> update(@PathVariable("id") Integer id, @RequestBody Book book) {
 		bookService.update(book);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PatchMapping("{id}")
 	public void updateTitle(@PathVariable("id") Integer id, @RequestBody String bookTitle) {
-		
+		bookService.updateTitle(id, bookTitle);
 	}
 	
 	@GetMapping("{id}")
@@ -56,7 +56,7 @@ public class BookController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<Object> delete(@PathVariable("id") int bookId) {
 		bookService.delete(bookId);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@GetMapping("count")
